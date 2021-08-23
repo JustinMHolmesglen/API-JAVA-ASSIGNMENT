@@ -1,0 +1,235 @@
+<!--version 2.0 created by Justin McAleer-->
+<!--last edited 22.08.2021-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="follow">
+    <meta name="description" content="This is a portfolio website on a product and service business called 64-bit company">
+    <link rel="icon" href="./images/64-bit-logo-blue.png" type="image/icon type">
+    <title>Video Search App for 64 - Bit company</title>
+    <!--bootstrap CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      type="text/css"/>
+      <!--CSS animate CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+      <link rel="stylesheet" href="./css/flex-images.css">
+    <link rel="stylesheet" href="./css/style_java.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="index.js" defer></script>
+    <script src="flex-images.js" defer></script>
+     
+  </head>
+  <body>
+    <!--navbar menu from bootstrap and modified-->
+    
+    <section>
+      <nav class="navbar main-nav navbar-expand-md navbar-light" id="main-nav-menu">
+          <div class="container-fluid">
+            <div class="logo">
+              <a class="navbar-brand" href="#page-hero">    
+                  <figure>
+                      <img src="./images/64-bit-logo-blue.png" alt="our-company-logo">
+                  </figure>
+              </a>    
+          </div>
+            <!--<a class="navbar-brand" href="#">Menu</a>-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#showcase">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#location">Location</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./contact.html" tabindex="-1" aria-disabled="false">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./JSlib.html" tabindex="-1" aria-disabled="false">Animated</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <!--search field-->
+      <div class="row">
+      <div class="input-group mb-3 mt-3">
+        <span class="input-group-text" id="basic-addon1">Search</span>
+        <!--<label for="searchInput"></label>-->
+        <input class="input-group mb-3" type="text" id="formSearchInput" name="searchInput" placeholder="search" aria-label="search videos" required/>
+      </div>
+             
+      <div class="col">
+        <!--search option in select box for categories-->
+          <select id="searchSelect" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>Open this select menu</option>
+              <option value="backgrounds">Backgrounds</option>
+              <option value="fashion">Fashion</option>
+              <option value="nature">Nature</option>
+              <option value="science">Science</option>
+              <option value="education">Education</option>
+              <option value="feelings">Feelings</option>
+              <option value="health">Health</option>
+              <option value="people">People</option>
+              <option value="religion">Religion</option>
+              <option value="places">Places</option>
+              <option value="animals">Animals</option>
+              <option value="industry">Industry</option>
+              <option value="computer">Computer</option>
+              <option value="food">Food</option>
+              <option value="sports">Sports</option>
+              <option value="transportation">Transportation</option>
+              <option value="travel">Travel</option>
+              <option value="buildings">Buildings</option>
+              <option value="business">Business</option>
+              <option value="music">Music</option>
+          </select>
+        </div>
+        <div class="col">        <!--search select for colour groups-->
+          <select id="searchSelectColor" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option value="grayscale">grayscale</option>
+              <option value="transparent">transparent</option>
+              <option value="red">red</option>
+              <option value="orange">orange</option>
+              <option value="yellow">yellow</option>
+              <option value="green">green</option>
+              <option value="turquoise">turquoise</option>
+              <option value="blue">blue</option>
+              <option value="lilac">lilac</option>
+              <option value="pink">pink</option>
+              <option value="white">white</option>
+              <option value="gray">gray</option>
+              <option value="black">black</option>
+              <option value="brown">brown</option>
+          </select>
+          </div>
+        <!--search select for media types-->
+        <div class="col">
+          <select id="searchSelectType" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option value="videos">Video</option>
+              <option value="">Photo</option>
+          </select>
+        </div>
+      </div>  
+          <div id="confirm" style="background: #fff; border-radius-top: 10px;"></div>
+          <button class="btn btn-info w-100" type="button" id="submitBtn" name="submit">Search</button>
+      </div>
+      
+    <!--our structure that we will append search results from the API to and error messages or attribution images to-->
+    <div class="row">  
+      <div class="col4">
+      <div id="cards" class="col-4 p-3"></div>
+      </div>
+      <div class="col4">
+      <p id="tag_cards"></p>
+      </div>
+      <div id="royal"></div>
+    </div>  
+      
+    </br>
+    <!--button to return to the top of the page-->
+    <button class="btn btn-info" onclick="window.location.href='#main-nav-menu';">Back to top&nbsp;<i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+    </div>
+    </section>
+    <!--grid display of my website products-->
+    <section class="Section-B" id="products">
+      <ul>
+          <li>
+              <a href="#" title="product one link">
+              
+                  <figure>
+                      <img src="./images/Product1.png" alt="product-one-image-design-product" style="width: 300px; height: 250px">
+                  </figure>
+                  <h3>Image Design</h3>
+                  
+                  <p>$99 each</p>
+              </a>
+          </li>
+          <li>
+              <a href="#" title="product two link">
+           
+                  <figure>
+                      <img src="./images/Product2.png" alt="product-two-social-media-picture" style="width: 300px; height: 250px">
+                  </figure>
+                  <h3>Social Media</h3>
+                  
+                  <p>$129 each</p>
+              
+              </a>
+          </li>
+          <li>
+              <a href="#" title="product three link">
+              
+                  <figure>
+                      <img src="./images/Product3.png" alt="product-three-brief-and-consult-picture" style="width: 300px; height: 250px">
+                  </figure>
+                  <h3>Brief and Consult</h3>
+                  
+                  <p>$199 each</p>
+              </a>
+          </li>
+          
+          <li>    
+              <a href="#" title="product three link">
+              
+                  <figure>
+                      <img src="./images/Product4.png" alt="product-four-website-wireframe-picture" style="width: 300px; height: 250px">
+                  </figure>
+                  <h3>Website Wireframe</h3>
+                  
+                  <p>$299 each</p>
+              </a>
+          </li>
+      </ul>  
+          <!--button to return to top of menu-->
+          <button class="btn btn-info" onclick="window.location.href='#main-nav-menu';">Back to top&nbsp;<i class="fa fa-chevron-up" aria-hidden="true"></i>
+          </button>
+            
+  </section>
+  <!--footer section including contact details and attribution to Pixabay-->
+    <footer class="colophon">
+      <ul>    
+          <li>
+              <h3>Contact</h3>
+              <a href="tel:+610412345678" target="_blank" title="link to dial company number"><i class="fa fa-phone" aria-hidden="true"></i>0412 345 678</a>
+              <br/>
+              <a href="mailto:youremail@gmail.com" target="_blank" title="link to email support"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;64-Bit Company's Email</a>
+              <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i>Facebook Link</a>
+          </li>
+          <li>
+              <h5>Be on time, every time!</h5>
+              <figure>
+                  <img src="./images/64-bit-logo-blue.png" alt="our-company-logo" style="width: 200px; height: auto">
+              </figure>
+              <p>64-Bit company is licensed to provide the best augmented reality service available in its' industry, Founded by Justin M, this website was the first of many projects that put this firm on the map.</p>
+          </li>
+          
+          <li>
+              <h5>Special Thanks to Pixabay API!</h5>
+              <figure>
+                <img src="./images/Pixabay_logo.png" alt="pixabay-logo" id="royalties" style="width: 150px; height: auto">
+            </figure>
+              <p>This website is copyright &copy; 2021 and remains the property of 64 - Bit company all rights reserved</p>
+          </li>
+      </ul> 
+    </footer>
+    <!--bootstrap java source file-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="anime.min.js"></script>  
+  </body>
+</html>
