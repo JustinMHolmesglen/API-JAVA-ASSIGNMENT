@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="follow">
     <meta name="description" content="This is a portfolio website on a product and service business called 64-bit company">
+    <meta name="Strict-Transport-Security: max-age=3600; includeSubDomains"/>
+		<meta name=Content-Security-Policy: default-src: 'self'; script-src: https://apis.google.com; https://cdnjs.cloudflare.com; https://cdn.jsdelivr.net;/>
     <link rel="icon" href="./images/64-bit-logo-blue.png" type="image/icon type">
     <title>Contact Us</title>
-    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -23,12 +24,8 @@
     
     <link rel="stylesheet" href="./css/form.css">
     <link rel="stylesheet" href="./css/contact.css">
-    
-    <script src="flex-images.js" defer></script>
-    
-    
-     
   </head>
+  
   <body>
     <!--search-->
     
@@ -97,7 +94,21 @@
                   <label for="password2">Confirm Password</label>
                   <input type="password" name="password2" id="password2" placeholder="Re-Enter Password" required/>
                 </div>
-                <button type="submit" class="btn">Sign Up</button>
+                <div class="center">
+                  <h1 id="captchaHeading">Captcha Validator</h1>
+                    <div id="captchaBackground">
+                      
+                      <canvas id="captcha">captcha text</canvas>
+                      <p>Sign Up</p>
+                      <input id="textBox" type="text" name="text">
+                    <div id="buttons">
+                      <input id="submitButton" type="submit">
+                      <button id="refreshButton" type="submit">Refresh</button>
+                    </div>
+                    <span id="output"></span>
+                    </div>
+                  </div>
+                
                 <p class="bottom-text" id="submitForm">
                   By clicking the Sign Up button, you agree to our
                   <a href="#">Terms & Conditions</a> and
@@ -106,7 +117,7 @@
                             
                 
                     <p>Already have an account? <a href="#">Login Here</a></p>
-                
+                    
                 </form>
             </div>    
                 
@@ -160,7 +171,7 @@
       </ul>    
     </footer>
     <script src="anime.min.js"></script>
-    <script src="pictures.js"></script>
+    <script src="captcha.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>  
   </body>
 </html>
